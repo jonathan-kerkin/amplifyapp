@@ -1,7 +1,5 @@
+<!DOCTYPE html>
 <html>
-    <script src="https://unpkg.com/react@^16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@^16/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <head>
     <meta charset="UTF-8" />
     <title>AWS Candidate Test</title>
@@ -10,19 +8,39 @@
 
     <h2>ANZ Solutions Architect Candidate Test</h2>
     <p>This page embeds a callback which is checked by AWS.</p>
-    <p>Please enter the callback url as the 'value' of the input below, then host this page somewhere web accessible.</p>
+    <p>Please enter the callback url as the content of the p tag below. See the commented example.</p>
+    <!--
+      <p id="endpoint_url">http://example.com/myendpointurl</p>
+    -->
+    <p id="endpoint_url">https://jm2douz7f9.execute-api.ap-southeast-2.amazonaws.com/default/lambda</p>
 
-<p id-"endpoint_url">https://jm2douz7f9.execute-api.ap-southeast-2.amazonaws.com/default/lambda</P)>
     <div id="root"></div>
 
-
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@^16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@^16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <!-- Load our React component. -->
     <script type="text/babel" src="event_caller.js"></script>
     <script type="text/babel">
+    var endpoint_url = document.getElementById('endpoint_url').innerHTML.trim();
     ReactDOM.render(
-      <event_caller endpoint={endpoint_url}/>,
+      <EventCaller endpoint={endpoint_url}/>,
       document.getElementById('root'));
     </script>
+    <style type="text/css">
+      p#endpoint_url {
+        background-color: black;
+        color: green;
+        display: inline-block;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1.2em;
+        font-weight: bold;
+        padding: 1em;
+        text-align: center;
+      }
+    </style>
   </body>
 </html>
