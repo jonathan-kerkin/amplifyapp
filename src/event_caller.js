@@ -1,9 +1,11 @@
 'use strict';
+import React from 'react';
 
+function event_caller() {
 const JSON_STRINGIFY_INDENT = 2;
 const e = React.createElement;
 
-class EventCaller extends React.Component {
+class event_caller extends React.Component {
   constructor(props) {
     super(props);
     this.state = { eventBody: '' };
@@ -35,3 +37,6 @@ class EventCaller extends React.Component {
     );
   }
 }
+}
+
+export default event_caller;
