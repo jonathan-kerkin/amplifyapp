@@ -1,51 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1894.6">
-  <style type="text/css">
-    p.p2 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p3 {margin: 0.0px 0.0px 12.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #0b5dad; -webkit-text-stroke: #0b5dad}
-    p.p4 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #0e479d; -webkit-text-stroke: #0e479d; min-height: 16.0px}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 12.0px Times; font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
-    span.s3 {text-decoration: underline ; font-kerning: none; background-color: #ffffff}
-  </style>
-</head>
-<body>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>ANZ Solutions Architect Candidate Test</b></span></h2>
-<p class="p2"><span class="s1">This page embeds a callback which is checked by AWS.</span></p>
-<p class="p2"><span class="s1">Please enter a fully qualified callback url as the content of the p tag below. See the commented example.</span></p>
-<p id="endpoint_url">https://jm2douz7f9.execute-api.ap-southeast-2.amazonaws.com/default/lambda</p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AWS Candidate Test</title>
+  </head>
+  <body>
 
-<script src="https://unpkg.com/react@^16/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@^16/umd/react-dom.development.js" crossorigin></script>
-<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <h2>ANZ Solutions Architect Candidate Test</h2>
+    <p>This page embeds a callback which is checked by AWS.</p>
+    <p>Please enter the callback url as the 'value' of the input below, then host this page somewhere web accessible.</p>
 
+    <input
+      type="url"
+      name="endpoint_url"
+      id="endpoint_url"
+      size="120"
+      disabled="true"
+      value="https://jm2douz7f9.execute-api.ap-southeast-2.amazonaws.com/default/lambda"
+    />
+    <div id="root"></div>
 
-<script type="text/bable" src="event_caller.js"></script>
-<script type="text/babel">
-    var endpoint_url = document.getElementById('endpoint_url').innerHTML.trim();
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@^16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@^16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- Load our React component. -->
+    <script type="text/babel" src="event_caller.js"></script>
+    <script type="text/babel">
     ReactDOM.render(
-      <EventCaller endpoint={endpoint_url}/>,
+      <EventCaller endpoint={endpoint_url.value}/>,
       document.getElementById('root'));
     </script>
-    <style type="text/css">
-      p#endpoint_url {
-        background-color: black;
-        color: green;
-        display: inline-block;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 1.2em;
-        font-weight: bold;
-        padding: 1em;
-        text-align: center;
-      }
-    </style>
   </body>
 </html>
