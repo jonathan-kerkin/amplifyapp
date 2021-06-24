@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 const JSON_STRINGIFY_INDENT = 2;
-const e = React.createElement;
+
 
 class EventCaller extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class EventCaller extends React.Component {
         return response.json();
       })
       .then(responseBody => {
-          this.setState({ eventBody: JSON.stringify(responseBody, null, JSON_STRINGIFY_INDENT)});
+          this.setState({ eventBody: JSON.stringify(responseBody, JSON_STRINGIFY_INDENT)});
       });
   }
 
