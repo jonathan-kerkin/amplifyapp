@@ -1,5 +1,5 @@
 'use strict';
-import React, {Component} from 'react';
+import React from 'react';
 const JSON_STRINGIFY_INDENT = 2;
 const e = React.createElement;
 
